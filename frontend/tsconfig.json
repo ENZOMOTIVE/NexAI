@@ -6,12 +6,14 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    // Allows us to use conditional/deep imports on published packages
+    "moduleResolution": "Bundler"
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "app/components/Cats.tsx", "app/entrypoint.js"  ]
 }
