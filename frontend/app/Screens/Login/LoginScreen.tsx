@@ -1,6 +1,8 @@
 import { useLoginWithEmail, usePrivy } from '@privy-io/expo';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
+import HomeScreen from '../Home/home';
 
 export default function LoginScreen() {
   const { sendCode, loginWithCode } = useLoginWithEmail();
@@ -13,10 +15,7 @@ export default function LoginScreen() {
 
   if (user) {
     return (
-      <View style={{ padding: 20 }}>
-        <Text style={{ fontSize: 24 }}>Welcome</Text>
-        <Button title="Logout" onPress={logout} />
-      </View>
+      <HomeScreen />
     );
   }
 

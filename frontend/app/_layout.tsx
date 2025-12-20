@@ -5,9 +5,17 @@ import {PrivyProvider} from '@privy-io/expo';
 
 import {Slot} from 'expo-router';
 
+import {Inter_400Regular, Inter_500Medium, Inter_600SemiBold} from '@expo-google-fonts/inter';
+import {useFonts} from 'expo-font';
+import { PrivyElements } from '@privy-io/expo/ui';
 
 export default function Layout() {
-  
+   useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+  });
+ 
 
   return (
     <PrivyProvider
@@ -22,6 +30,7 @@ export default function Layout() {
     }}
     >
       <Slot />
+      <PrivyElements />
     </PrivyProvider>
     );
 }

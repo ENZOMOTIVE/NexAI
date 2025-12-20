@@ -15,5 +15,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "app/components/Cats.tsx", "app/entrypoint.js"  ]
+, "app/Screens/Cats.tsx", "app/entrypoint.js"  ]
 }
