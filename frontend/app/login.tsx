@@ -1,8 +1,8 @@
 import { useLogin } from '@privy-io/expo/ui';
 import { usePrivy } from '@privy-io/expo';
 import { Button, View, Text, TouchableOpacity, ImageBackground } from 'react-native';
-import HomeScreen from '../Home/home';
-import { Background } from '@react-navigation/elements';
+
+import { Redirect } from 'expo-router';
 
 
 export default function LoginScreen() {
@@ -11,7 +11,8 @@ export default function LoginScreen() {
 
 
 
-  if (user) return <HomeScreen />;
+
+  if (user) return <Redirect href="/home" />;
 
   return (
 
