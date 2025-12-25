@@ -28,7 +28,7 @@ export default function App() {
       SplashScreen.hideAsync(); 
 
       if (user) {
-        router.replace('/home');
+        router.replace('/(tab)/home');
       }
       else{
         router.replace('/login');

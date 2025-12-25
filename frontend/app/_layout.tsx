@@ -7,7 +7,7 @@ import { Slot, Stack } from 'expo-router';
 import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold } from '@expo-google-fonts/inter';
 import { useFonts } from 'expo-font';
 import { PrivyElements } from '@privy-io/expo/ui';
-
+import { PaperProvider } from 'react-native-paper';
 
 
 
@@ -34,8 +34,18 @@ export default function Layout() {
         },
       }}
     >
+      <PaperProvider>
 
-        <Stack screenOptions={{ headerShown: false }} />
+   
+        <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="login" options={{ headerShown: false }} />
+
+          {/* Tabbed navigation layout */}
+         <Stack.Screen name="(tab)" options={{ headerShown: false }} />
+
+        </Stack> 
+      </PaperProvider>
       <PrivyElements />
     </PrivyProvider>
   );
