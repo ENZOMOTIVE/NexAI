@@ -20,7 +20,7 @@ console.log("User data in Profile tab:", user);
              <Text style={{ fontSize: 24, marginBottom: 20 }}>User Information</Text>
             <View>
              
-                <Text style={{ fontSize: 16 }}>{JSON.stringify(user, null, 2)}</Text>
+                <Text style={{ fontSize: 16 }}>  Profile Page </Text>
 
             </View>
            

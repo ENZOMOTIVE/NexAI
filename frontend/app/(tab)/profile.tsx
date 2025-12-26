@@ -21,7 +21,9 @@ export default function Profile() {
     }
   }, [user]);
 
-
+  const email = user?.linked_accounts.find(acc => acc.type === "email")?.address || "No email linked";
+  const wallet_address= user?.linked_accounts.find(acc => acc.type === "wallet")?.address || "No wallet linked";
+  const connected_chain = user?.linked_accounts.find(acc => acc.type === "wallet")?.chain_type || "No chain connected";
 
 
   return (
@@ -31,7 +33,7 @@ export default function Profile() {
       <View
         style={{
           position: "absolute",
-          top: 50,
+          top: 80,
           left: 0,
           right: 0,
           alignItems: "center",
@@ -54,41 +56,105 @@ export default function Profile() {
           width: '100%',
         }}
       >
-        <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "center" }}>
+        <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "center", marginBottom: 20 }}>
           User Wallet Details
         </Text>
 
  
-
-  {user?.linked_accounts?.map((acc, index) => (
-  <Card
-    key={index}
+          <Card
+    
     style={{
       width: "100%",
+      marginTop: 12,
       marginBottom: 12,
       borderRadius: 12,
     }}
-  >
+  > 
     <Card.Title
-      title={acc.type === "email" ? "Email" : "Wallet"}
-      subtitle={acc.address}
+      title="Email"
+      subtitle={email}
       left={(props) => (
         <Avatar.Icon
           {...props}
-          icon={acc.type === "email" ? "email" : "wallet"}
+          icon="email"
         />
       )}
     />
-
-    {/* Extra details only for wallets */}
-    {acc.type === "wallet" && (
-      <Card.Content>
-        <Text>Chain: {acc.chain_type}</Text>
-        <Text>Connector: {acc.connector_type}</Text>
-      </Card.Content>
-    )}
   </Card>
-))}
+
+
+   <Card
+    
+    style={{
+      width: "100%",
+      marginTop: 12,
+      marginBottom: 12,
+      borderRadius: 12,
+    }}
+  > 
+    <Card.Title
+      title="Wallet Address"
+      subtitle={wallet_address}
+      left={(props) => (
+        <Avatar.Icon
+          {...props}
+          icon="wallet"
+        />
+      )}
+    />
+  </Card>
+
+
+  <Card
+    
+    style={{
+      width: "100%",
+      marginTop: 12,
+      marginBottom: 12,
+      borderRadius: 12,
+    }}
+  > 
+    <Card.Title
+      title="Connected Blockchain "
+      subtitle={connected_chain}
+      left={(props) => (
+        <Avatar.Icon
+          {...props}
+          icon="link"
+        />
+      )}
+    />
+  </Card>
+
+   <Card
+    
+    style={{
+      width: "100%",
+      marginTop: 12,
+      marginBottom: 12,
+      borderRadius: 12,
+    }}
+  > 
+    <Card.Title
+      title="User DID"
+      subtitle={user?.id}
+      left={(props) => (
+        <Avatar.Icon
+          {...props}
+          icon="human"
+        />
+      )}
+    />
+  </Card>
+
+
+
+
+
+
+
+
+
 
 
       </View>
